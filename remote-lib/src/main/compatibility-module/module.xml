@@ -1,0 +1,7 @@
+<module xmlns="urn:jboss:module:1.1" name="com.arhs.infinispan.task.model">
+
+   <resources>
+      <resource-root path="remote-lib-common.jar"/>
+   </resources>
+
+</module>

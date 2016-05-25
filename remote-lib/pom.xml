@@ -17,7 +17,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
 
-        <compat.module.path>${project.build.directory}/modules/system/layers/base/com/arhs/infinispan/task/model/main</compat.module.path>
+        <infinispan.version>8.3.0.ER4-redhat-1</infinispan.version>
+
+        <compat.module.path>${project.build.directory}/modules/system/layers/base/com/arhs/infinispan/task/model/main
+        </compat.module.path>
 
     </properties>
 
@@ -64,7 +67,8 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <copy file="${basedir}/src/main/compatibility-module/module.xml" todir="${compat.module.path}" overwrite="true"/>
+                                <copy file="${basedir}/src/main/compatibility-module/module.xml"
+                                      todir="${compat.module.path}" overwrite="true"/>
                             </tasks>
                         </configuration>
                     </execution>
@@ -73,5 +77,14 @@
         </plugins>
 
     </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-embedded</artifactId>
+            <version>${infinispan.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
 </project>

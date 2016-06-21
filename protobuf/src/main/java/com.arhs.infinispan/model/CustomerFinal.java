@@ -2,15 +2,15 @@ package com.arhs.infinispan.model;
 
 import org.infinispan.protostream.annotations.ProtoDoc;
 import org.infinispan.protostream.annotations.ProtoField;
-import org.infinispan.protostream.annotations.ProtoMessage;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 /***
  * Customer persistence object
  */
 @ProtoDoc("@Indexed")
-@ProtoMessage(name = "CustomerFinal")
 public class CustomerFinal implements Serializable {
     private String customerId;
     private String customerGroupId;
@@ -18,6 +18,8 @@ public class CustomerFinal implements Serializable {
     public CustomerFinal() {
     }
 
+    @ProtoDoc("@IndexedField(index=true, store=true)")
+    @ProtoField(number = 1)
     public String getCustomerId() {
         return customerId;
     }
@@ -26,11 +28,12 @@ public class CustomerFinal implements Serializable {
         this.customerId = customerId;
     }
 
-    @ProtoDoc("@IndexedField")
-    @ProtoField(number = 1)
+    @ProtoDoc("@IndexedField(index=true, store=true)")
+    @ProtoField(number = 2, required = false, javaType = String.class)
     public String getCustomerGroupId() {
         return customerGroupId;
     }
+
 
     public void setCustomerGroupId(String customerGroupId) {
         this.customerGroupId = customerGroupId;

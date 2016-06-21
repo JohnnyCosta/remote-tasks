@@ -19,6 +19,7 @@
     <module>remote-task</module>
     <module>remote-task2</module>
     <module>client-app</module>
+    <module>protobuf</module>
   </modules>
 
   <dependencies>
